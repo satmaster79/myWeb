@@ -1,12 +1,62 @@
 ﻿<!DOCTYPE html>
 <html>
+
 <head>
-<meta content="text/html; charset=utf8" http-equiv="content-type">
-<title>Заголовок страницы</title>
+    <meta content="text/html; charset=utf8" http-equiv="content-type">
+    <title>Расчет характеристик параболических антенн</title>
+    <link rel="stylesheet" href="../resourse/bootstrap.min_5_3_0.css">
+    <script type="text/javascript" src="../resourse/jquery-3.7.1.min.js"></script>
+    <script type="text/javascript" src="antCharacteristics.js"></script>
 </head>
 
 <body>
-Тело страницы.
-
+    <div class="ms-4 me-4">
+        <h1 class="fw-bold text-body border-bottom border-3 border-dark pb-2">
+            Расчет характеристик параболических антенн
+        </h1>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-3 bg-light bg-gradient">
+                <form id="f_in_ant">
+                    <div class="mb-3">
+                        <label for="f_in_ant_diameter" class="form-label">Диаметр зеркала, метры:</label>
+                        <input type="number" class="form-control " id="f_in_ant_diameter"
+                            placeholder="Введите диаметр зеркала" value="2.4">
+                    </div>
+                    <div class="mb-3">
+                        <label for="f_in_ant_freq" class="form-label">Рабочая частота:</label>
+                        <div class="input-group">
+                            <div class="col-8">
+                                <div class="me-1">
+                                    <input type="number" class="form-control" id="f_in_ant_freq"
+                                        placeholder="Введите частоту" value="11.5">
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <select class="form-select col-4" id="f_in_ant_freq_unit">
+                                    <option selected value="ghz">ГГц</option>
+                                    <option value="mhz">МГц</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" type="submit" id="f_in_btn">Рассчитать</button>
+                </form>
+            </div>
+            <div class="col-9"></div>
+        </div>
+    </div>
+    <!-- Вывод расчета длины волны и зон антенны ближней и дальней -->
+    <div class="container">
+        <div class="row mt-2">
+            <div class="auto bg-light">
+                <div id="out_lambda"></div>
+                <div id="out_ant_near_field"></div>
+                <div id="out_ant_far_field"></div>
+            </div>
+        </div>
+    </div>
 </body>
+
 </html>
